@@ -10,10 +10,10 @@
 
 | Индекс | Иконка / Категория | Назначение | Примеры предметов |
 | :---: | :--- | :--- | :--- |
-| **`0`** | **Props (Пропы)** | Ящики, бочки, кирпичи, строительные блоки | Деревянный ящик, бетонный блок |
+| **`0`** | **Props (Пропы)** | Ящики, бочки, кирпичи, строительные блоки | Стальной ящик, деревянная бочка |
 | **`1`** | **Ragdolls (Куклы)** | Живые персонажи, манекены, ragdoll-тела | Человечек, тренировочный манекен |
 | **`2`** | **Guns (Огнестрел)** | Пистолеты, автоматы, дробовики, пушки | Пистолет, револьвер |
-| **`3`** | **Melee (Холодное)** | Мечи, катаны, топоры, ножи, копья | Катана, рыцарский меч, булава |
+| **`3`** | **Melee (Холодное)** | Мечи, топоры, ножи, копья | Меч, булава |
 | **`4`** | **Explosives (Взрывчатка)** | Бомбы, динамит, контактные мины | Бочка с горючим, C4 |
 | **`5`** | **Misc (Разное)** | Механизмы, колеса, магниты, инструменты | Двигатели, шарниры, лампы |
 
@@ -35,38 +35,38 @@ World.register_spawn_item(lane_index, icon_sprite, spawn_function)
 
 ## Полный рабочий пример
 
-Ниже приведен пример регистрации двух предметов: тяжелого ящика на полку `0` (`Props`) и самурайской катаны на полку `3` (`Melee`):
+Ниже приведен пример регистрации стального ящика и деревянной бочки на полку `0` (`Props`):
 
 ```lua
 function OnInit()
     -- 1. Загрузка иконок для интерфейса
     local crate_icon = Mod.load_sprite("icons/steel_crate_icon.png")
-    local sword_icon = Mod.load_sprite("icons/katana_icon.png")
+    local barrel_icon = Mod.load_sprite("icons/wood_barrel_icon.png")
 
-    -- 2. Регистрация тяжелого ящика на полке 0 (Props)
+    -- 2. Регистрация стального ящика на полке 0 (Props)
     World.register_spawn_item(0, crate_icon, function(x, y)
         local spr = Mod.load_sprite("textures/steel_crate.png", 20.0)
         return World.create_prop(
             "SteelCrate",
             spr,
             x, y,
-            15.0,  -- Масса: 15 кг
+            12.0,  -- Масса: 12 кг
             0.6,   -- Трение
             0.05,  -- Упругость
             1.0    -- Масштаб
         )
     end)
 
-    -- 3. Регистрация катаны на полке 3 (Melee)
-    World.register_spawn_item(3, sword_icon, function(x, y)
-        local spr = Mod.load_sprite("textures/katana.png", 24.0)
+    -- 3. Регистрация бочки на полке 0 (Props)
+    World.register_spawn_item(0, barrel_icon, function(x, y)
+        local spr = Mod.load_sprite("textures/wood_barrel.png", 20.0)
         return World.create_prop(
-            "Katana",
+            "WoodBarrel",
             spr,
             x, y,
-            2.0,   -- Масса: 2 кг
+            4.0,   -- Масса: 4 кг
             0.4,   -- Трение
-            0.1,   -- Упругость
+            0.3,   -- Упругость
             1.0    -- Масштаб
         )
     end)

@@ -8,11 +8,11 @@ The `info.json` file is placed in the root of the mod folder and describes metad
 
 ```json
 {
-  "id": "cool_swords",
-  "version": "1.2.0",
-  "name": "Cool Swords Pack",
-  "author": "Velvetic & rdev",
-  "description": "5 custom blades with custom physics and sprites",
+  "id": "custom_props",
+  "version": "1.0.0",
+  "name": "Custom Props Pack",
+  "author": "rdev",
+  "description": "Adds custom steel crates, barrels, and concrete barriers",
   "dependencies": []
 }
 ```

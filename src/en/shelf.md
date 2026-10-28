@@ -8,10 +8,10 @@
 
 | Lane | Name | Purpose | Examples |
 | :---: | :--- | :--- | :--- |
-| **`0`** | **Props** | Boxes, crates, environment items | Wooden crate, steel cube |
+| **`0`** | **Props** | Boxes, crates, environment items | Steel crate, wooden barrel |
 | **`1`** | **Ragdolls** | Humanoids, ragdoll mannequins | Test dummy, character |
 | **`2`** | **Guns** | Firearms, pistols, rifles | Pistol, revolver |
-| **`3`** | **Melee** | Blades, swords, blunt weapons | Katana, broadsword, club |
+| **`3`** | **Melee** | Blades, swords, blunt weapons | Sword, club, spear |
 | **`4`** | **Explosives** | Barrels, bombs, mines | Explosive barrel, C4 |
 | **`5`** | **Misc** | Mechanisms, wheels, contraptions | Hinges, wheels, thrusters |
 
@@ -33,14 +33,22 @@ World.register_spawn_item(lane_index, icon_sprite, spawn_function)
 
 ```lua
 function OnInit()
-    local icon = Mod.load_sprite("icons/sword_icon.png")
+    local crate_icon = Mod.load_sprite("icons/steel_crate_icon.png")
+    local barrel_icon = Mod.load_sprite("icons/wood_barrel_icon.png")
     
-    World.register_spawn_item(3, icon, function(x, y)
-        local spr = Mod.load_sprite("textures/sword.png", 24.0)
-        return World.create_prop("Broadsword", spr, x, y, 2.0, 0.4, 0.1, 1.0)
+    -- Register steel crate on lane 0 (Props)
+    World.register_spawn_item(0, crate_icon, function(x, y)
+        local spr = Mod.load_sprite("textures/steel_crate.png", 20.0)
+        return World.create_prop("SteelCrate", spr, x, y, 12.0, 0.6, 0.05, 1.0)
+    end)
+
+    -- Register wooden barrel on lane 0 (Props)
+    World.register_spawn_item(0, barrel_icon, function(x, y)
+        local spr = Mod.load_sprite("textures/wood_barrel.png", 20.0)
+        return World.create_prop("WoodBarrel", spr, x, y, 4.0, 0.4, 0.3, 1.0)
     end)
     
-    Log("Broadsword registered on Melee lane!")
+    Log("Props registered on SpawnShelf!")
 end
 ```
 

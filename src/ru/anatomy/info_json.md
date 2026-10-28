@@ -8,11 +8,11 @@
 
 ```json
 {
-  "id": "cool_swords",
-  "version": "1.2.0",
-  "name": "Cool Swords Pack",
-  "author": "Velvetic & rdev",
-  "description": "Набор из 5 клинков с настраиваемыми физическими свойствами и спрайтами",
+  "id": "custom_props",
+  "version": "1.0.0",
+  "name": "Набор новых пропов",
+  "author": "rdev",
+  "description": "Добавляет стальной ящик, деревянную бочку и бетонный блок",
   "dependencies": []
 }
 ```

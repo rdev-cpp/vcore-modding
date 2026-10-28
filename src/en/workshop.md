@@ -22,7 +22,7 @@ Accessed via the **`mods`** button in the main menu:
 - `all` — Full catalog.
 - `popular` — Highest total downloads and ratings.
 - `newest` — Recent releases.
-- `weapons` — Firearms and melee weapon packs.
+- `weapons` — Weapon packs.
 - `props` — Physics items, blocks, and decor.
 - `scripts` — Utilities, camera tools, and gameplay systems.
 
@@ -35,5 +35,15 @@ Accessed via the **`mods`** button in the main menu:
 
 1. Verify `info.json` has a unique `id`, SemVer `version`, and descriptive text.
 2. Remove `.bak` or temporary files.
-3. Package into a clean `.zip` archive where `info.json` and `main.lua` are located at the root (or in a single top folder).
+3. Package into a clean `.zip` archive where `info.json` and `main.lua` are located at the root (or in a single top folder):
+
+```text
+CustomProps_v1.0.0.zip
+└── CustomProps/
+    ├── info.json
+    ├── main.lua
+    └── assets/
+        └── ...
+```
+
 4. Prepare an optional `256x256` preview image for catalog listings.

@@ -10,7 +10,7 @@ The `World` (or `world`) table provides functions to spawn entities, crates, wea
 Creates an interactive 2D physics entity with a sprite, collider, and standard VCore sandbox components.
 
 - **Parameters:**
-  - `name` (`string`): GameObject name in the Unity hierarchy.
+  - `name` (`string`): GameObject name in the hierarchy.
   - `sprite` (`Sprite`): Sprite loaded via `Mod.load_sprite`.
   - `x`, `y` (`number`): World spawn position.
   - `mass` (`number`, optional, default `1.0`): Mass in kg.
@@ -30,8 +30,8 @@ Creates an interactive 2D physics entity with a sprite, collider, and standard V
 > - `Blotch` (blood, soot, and decal receiver).
 
 ```lua
-local spr = Mod.load_sprite("textures/katana.png", 24.0)
-local blade = World.create_prop("Katana", spr, 0, 5, 2.0, 0.4, 0.1, 1.0)
+local spr = Mod.load_sprite("textures/steel_crate.png", 20.0)
+local crate = World.create_prop("SteelCrate", spr, 0, 5, 12.0, 0.6, 0.05, 1.0)
 ```
 
 ---
@@ -63,6 +63,15 @@ Registers a custom item in the slide-out spawn menu (held via `Q`).
   - `spawn_func` (`function(x, y)`): Callback receiving world coordinates and returning the spawned `GameObject`.
 - **Alias:** `World.RegisterSpawnItem(...)`.
 
+```lua
+local icon = Mod.load_sprite("icons/steel_crate_icon.png")
+
+World.register_spawn_item(0, icon, function(x, y)
+    local spr = Mod.load_sprite("textures/steel_crate.png", 20.0)
+    return World.create_prop("SteelCrate", spr, x, y, 12.0, 0.6, 0.05, 1.0)
+end)
+```
+
 ---
 
 ## Querying and Destroying
@@ -74,4 +83,4 @@ Finds an active `GameObject` by name. Returns `GameObject` or `nil`.
 Finds all active `GameObject`s with a specific tag. Returns an array table.
 
 ### `World.destroy(gameObject)`
-Safely destroys a `GameObject` via `UnityEngine.Object.Destroy`.
+Safely destroys a `GameObject`.

@@ -1,14 +1,14 @@
 # Introduction to VCore Modding
 
-**VCore** provides a modular, high-performance environment for building custom modifications using **Lua**. The modding subsystem enables creators to expand the 2D physics sandbox: add custom props and weapons, control the camera, manipulate game physics and time, and integrate custom content into the spawn shelf (SpawnShelf / Q-menu).
+**VCore** provides a modular, integrated environment for building custom modifications using **Lua**. The modding subsystem enables creators to expand the 2D physics sandbox: add custom physical props and crates, control world gravity and physics, manipulate the camera, time, and integrate directly into the Q-menu (SpawnShelf).
 
 ---
 
 ## Subsystem Architecture
 
-Modding in VCore is powered by **MoonSharp (Lua 5.2)**, running fully in Unity's managed environment without native binary dependencies (ensuring full compatibility across both Mono and IL2CPP build targets).
+Modding in VCore is powered by a lightweight, fast Lua scripting engine. The system is fully self-contained, isolated, and optimized for smooth 2D physics simulation.
 
-Key architectural features:
+Key features:
 - **Sandbox Isolation:** Each mod runs inside an isolated `Script(CoreModules.Preset_SoftSandbox)` virtual machine.
 - **Hot Reload:** Mods can be toggled and reloaded directly from the in-game main menu (`mods`) without restarting the game.
 - **Dual-Style API:** All built-in API functions support both `PascalCase` (`Camera.SetSize`) and `snake_case` (`camera.set_size`).
@@ -19,28 +19,29 @@ Key architectural features:
 
 ## Mods Location
 
-Installed mods are stored in the root `Mods/` directory alongside the game executable:
+Installed mods are stored in the `Mods/` directory directly alongside `VCore.exe`:
 
 ```text
 VCore/
 ├── VCore.exe
 └── Mods/
-    ├── CameraFovChanger/
+    ├── CustomProps/
     │   ├── info.json
-    │   └── main.lua
-    └── CoolSwords/
+    │   ├── main.lua
+    │   └── assets/
+    │       ├── steel_crate.png
+    │       └── steel_crate_icon.png
+    └── GravityController/
         ├── info.json
-        ├── main.lua
-        └── assets/
-            ├── katana.png
-            └── katana_icon.png
+        └── main.lua
 ```
+
+The game scans the `Mods/` folder on startup, validates `info.json` manifests, and executes `main.lua` for active mods.
 
 ---
 
 ## Required Tools
 
-No Unity Editor or C# compilation tools are needed:
-1. **Code Editor:** Any text editor (VS Code with *Lua by sumneko*, Sublime Text, Notepad++).
+1. **Code Editor:** Any text editor (VS Code, Sublime Text, Notepad++).
 2. **Graphics Editor:** Any image editor supporting transparent `.png` (Aseprite, Photoshop, Paint.NET).
-3. **VCore Game Client:** Any test build or development release.
+3. **VCore Game Client:** Any current game build.

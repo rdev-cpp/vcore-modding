@@ -1,15 +1,15 @@
 # Tutorials
 
-Practical step-by-step breakdowns of sample mods included with VCore.
+Practical step-by-step breakdowns of sample mods for VCore.
 
 ---
 
 ## Available Tutorials
 
-1. **[Camera Zoom Tool (CameraFovChanger)](camera_fov.md)**
-   - Category: *Script Utility*.
-   - Demonstrates: key polling (`F1` / `F2`), expanding zoom limits (`Camera.set_limits`), adjusting camera size dynamically.
+1. **[Custom Props Pack (CustomProps)](props_pack.md)**
+   - Category: *Content Mod / Props*.
+   - Demonstrates: loading textures and icons with PPU 20, configuring physics parameters (mass, friction, bounce), and registering items in Q-menu lane 0 (`Props`).
 
-2. **[Melee Weapons Pack (CoolSwords)](melee_weapons.md)**
-   - Category: *Content Mod*.
-   - Demonstrates: organizing `assets/`, loading sprites with custom PPU, setting 2D physics properties, and registering items in Q-menu lane 1 (`Melee`).
+2. **[Gravity Controller (GravityController)](gravity_controller.md)**
+   - Category: *Gameplay Mod / Physics*.
+   - Demonstrates: key polling (`Input.get_key_down`), switching gravity modes in real-time (Zero-G, inverted, standard), console status logs, and safe state restoration in `OnUnload`.

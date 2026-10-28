@@ -21,7 +21,7 @@ The `Mod` (or `mod`) table provides access to the current mod's properties and s
 ## Asset Loading Methods
 
 ### `Mod.load_sprite(relativePath, pixelsPerUnit)`
-Loads an image (`.png`, `.jpg`) and creates a Unity `Sprite`.
+Loads an image (`.png`, `.jpg`) and creates a `Sprite`.
 
 - **Parameters:**
   - `relativePath` (`string`): Path relative to `assets/` or the mod root.
@@ -30,7 +30,7 @@ Loads an image (`.png`, `.jpg`) and creates a Unity `Sprite`.
 - **Alias:** `Mod.LoadSprite(...)`.
 
 ```lua
-local katana_sprite = Mod.load_sprite("textures/katana.png", 24.0)
+local crate_sprite = Mod.load_sprite("textures/steel_crate.png", 20.0)
 ```
 
 ---
@@ -64,4 +64,4 @@ Checks if a file exists within the mod's directory.
 
 ## Automatic Resource Cleanup
 
-All sprites and textures loaded through `Mod.load_sprite` and `Mod.load_texture` are tracked by the runtime and destroyed via `UnityEngine.Object.Destroy` when the mod unloads, preventing GPU memory leaks.
+All sprites and textures loaded through `Mod.load_sprite` and `Mod.load_texture` are tracked by the runtime and cleanly unloaded when the mod is disabled, preventing GPU memory leaks.

@@ -22,8 +22,8 @@
 - [SpawnShelf (Q-меню)](ru/shelf.md)
 - [Песочница и безопасность](ru/security.md)
 - [Практические руководства](ru/tutorials/overview.md)
-  - [Управление камерой (CameraFovChanger)](ru/tutorials/camera_fov.md)
-  - [Холодное оружие (CoolSwords)](ru/tutorials/melee_weapons.md)
+  - [Кастомные пропы и ящики (CustomProps)](ru/tutorials/props_pack.md)
+  - [Управление гравитацией (GravityController)](ru/tutorials/gravity_controller.md)
 - [Воркшоп и публикация](ru/workshop.md)
 
 # English
@@ -46,6 +46,6 @@
 - [SpawnShelf (Q-Menu)](en/shelf.md)
 - [Sandbox & Security](en/security.md)
 - [Tutorials](en/tutorials/overview.md)
-  - [Camera Zoom Tool](en/tutorials/camera_fov.md)
-  - [Melee Weapons Pack](en/tutorials/melee_weapons.md)
+  - [Custom Props Pack (CustomProps)](en/tutorials/props_pack.md)
+  - [Gravity Controller (GravityController)](en/tutorials/gravity_controller.md)
 - [Workshop & Publishing](en/workshop.md)

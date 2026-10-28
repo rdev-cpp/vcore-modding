@@ -7,20 +7,20 @@ Following a consistent file organization ensures clarity and maintainability.
 ## Recommended Directory Tree
 
 ```text
-Mods/CoolSwords/
+Mods/CustomProps/
 ├── info.json              # Mod metadata
 ├── main.lua               # Entry point
 ├── config.lua             # Auxiliary config module
 ├── logic/
 │   ├── spawner.lua        # Auxiliary logic module
-│   └── weapons.lua
+│   └── helper.lua
 └── assets/                # Asset storage
     ├── textures/
-    │   ├── katana.png
-    │   └── claymore.png
+    │   ├── steel_crate.png
+    │   └── wood_barrel.png
     └── icons/
-        ├── katana_icon.png
-        └── claymore_icon.png
+        ├── steel_crate_icon.png
+        └── wood_barrel_icon.png
 ```
 
 ---
@@ -32,8 +32,8 @@ VCore overrides standard `require` to provide safe loading of auxiliary `.lua` f
 In `config.lua`:
 ```lua
 local Config = {
-    sword_scale = 1.0,
-    sword_mass = 2.5
+    prop_scale = 1.0,
+    prop_mass = 12.0
 }
 return Config
 ```
@@ -43,7 +43,7 @@ In `main.lua`:
 local Config = require("config")
 
 function OnInit()
-    Log("Loaded config with sword mass: " .. Config.sword_mass)
+    Log("Loaded config with prop mass: " .. Config.prop_mass)
 end
 ```
 
@@ -55,5 +55,5 @@ Attempting to traverse outside the mod directory (e.g., `require("../other_mod/s
 ## Asset Resolution
 
 When calling asset loaders (`Mod.load_sprite`, `Mod.load_texture`, `Mod.read_text`, `Mod.asset_exists`), the engine searches:
-1. Under the `assets/` subfolder: `Mod.load_sprite("textures/katana.png")` -> `Mods/CoolSwords/assets/textures/katana.png`.
-2. Under the root folder: `Mods/CoolSwords/textures/katana.png`.
+1. Under the `assets/` subfolder: `Mod.load_sprite("textures/steel_crate.png")` -> `Mods/CustomProps/assets/textures/steel_crate.png`.
+2. Under the root folder: `Mods/CustomProps/textures/steel_crate.png`.

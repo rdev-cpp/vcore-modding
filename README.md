@@ -8,7 +8,7 @@ Online guide: [https://rdev-cpp.github.io/vcore-modding/](https://rdev-cpp.githu
 
 ## Overview
 
-VCore supports user modifications written in Lua, running in an isolated MoonSharp sandbox.
+VCore supports user modifications written in Lua, running in an isolated sandbox.
 
 This repository hosts the source markdown files for the documentation site, built with [mdBook](https://rust-lang.github.io/mdBook/).
 
@@ -17,9 +17,9 @@ This repository hosts the source markdown files for the documentation site, buil
 - **Mod Anatomy:** `info.json` specification, directory tree, modular `require`
 - **Lifecycle:** `OnInit`, `OnUpdate`, `OnFixedUpdate`, `OnSceneLoaded`, `OnGUI`, `OnUnload`
 - **API Reference:** `Mod`, `World`, `Camera`, `Input`, `Physics`, `Events`, `Dials`, `Time`, `Log`
-- **SpawnShelf:** Adding custom props and weapons to the Q-menu
+- **SpawnShelf:** Adding custom props to the Q-menu
 - **Sandbox:** Allowed libraries, restricted functions, path traversal protection
-- **Tutorials:** Camera zoom tool (`CameraFovChanger`) and melee pack (`CoolSwords`)
+- **Tutorials:** Custom props pack (`CustomProps`) and gravity controller (`GravityController`)
 
 ---
 

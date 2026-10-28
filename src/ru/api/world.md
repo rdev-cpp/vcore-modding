@@ -7,10 +7,10 @@
 ## Методы создания объектов
 
 ### `World.create_prop(name, sprite, x, y, mass, friction, bounce, scale)`
-Создает полноценный интерактивный 2D физический объект со спрайтом, коллайдером и стандартными компонентами песочницы Velvetics-Core.
+Создает полноценный интерактивный 2D физический объект со спрайтом, коллайдером и стандартными компонентами песочницы VCore.
 
 - **Параметры:**
-  - `name` (`string`): имя создаваемого `GameObject` в иерархии Unity.
+  - `name` (`string`): имя создаваемого `GameObject`.
   - `sprite` (`Sprite`): объект спрайта, полученный через `Mod.load_sprite`.
   - `x`, `y` (`number`): координаты начального положения в мировом пространстве.
   - `mass` (`number`, опционально, по умолчанию `1.0`): масса объекта в килограммах.
@@ -30,14 +30,14 @@
 > - `Blotch` (система наложения следов крови, грязи и сколов).
 
 ```lua
-local sprite = Mod.load_sprite("textures/katana.png", 24.0)
-local katana = World.create_prop(
-    "Katana_Blade",
+local sprite = Mod.load_sprite("textures/steel_crate.png", 20.0)
+local crate = World.create_prop(
+    "Steel_Crate",
     sprite,
     0.0, 5.0,  -- X, Y
-    2.5,       -- Масса (2.5 кг)
-    0.5,       -- Трение
-    0.1,       -- Упругость
+    12.0,      -- Масса (12 кг)
+    0.6,       -- Трение
+    0.05,      -- Упругость
     1.0        -- Масштаб
 )
 ```
@@ -45,7 +45,7 @@ local katana = World.create_prop(
 ---
 
 ### `World.spawn_crate(x, y)`
-Создает стандартный физический ящик Velvetics-Core в указанных мировых координатах.
+Создает стандартный физический ящик VCore в указанных мировых координатах.
 
 - **Параметры:** `x`, `y` (`number`).
 - **Возвращает:** `GameObject` (`UserData`).
@@ -54,7 +54,7 @@ local katana = World.create_prop(
 ---
 
 ### `World.spawn_pistol(x, y)`
-Спавнит стандартный огнестрельный пистолет Velvetics-Core.
+Спавнит стандартный огнестрельный пистолет VCore.
 
 - **Параметры:** `x`, `y` (`number`).
 - **Возвращает:** `GameObject` (`UserData`).
@@ -74,11 +74,11 @@ local katana = World.create_prop(
 - **Псевдоним:** `World.RegisterSpawnItem(...)`.
 
 ```lua
-local icon = Mod.load_sprite("icons/sword_icon.png", 20.0)
+local icon = Mod.load_sprite("icons/steel_crate_icon.png", 20.0)
 
-World.register_spawn_item(3, icon, function(x, y)
-    local spr = Mod.load_sprite("textures/sword.png", 24.0)
-    return World.create_prop("CustomSword", spr, x, y, 2.0, 0.4, 0.1, 1.0)
+World.register_spawn_item(0, icon, function(x, y)
+    local spr = Mod.load_sprite("textures/steel_crate.png", 20.0)
+    return World.create_prop("CustomCrate", spr, x, y, 12.0, 0.6, 0.05, 1.0)
 end)
 ```
 
@@ -87,7 +87,7 @@ end)
 ## Поиск и уничтожение объектов
 
 ### `World.find(name)`
-Выполняет поиск активного игрового объекта по имени в текущей сцене Unity.
+Выполняет поиск активного игрового объекта по имени в текущей сцене.
 
 - **Параметры:** `name` (`string`).
 - **Возвращает:** `GameObject` (`UserData`) или `nil`, если объект не найден.
@@ -107,10 +107,3 @@ end)
 
 - **Параметры:** `gameObject` (`UserData`).
 - **Псевдоним:** `World.Destroy(...)`.
-
-```lua
-local old_prop = World.find("ObsoleteProp")
-if old_prop then
-    World.destroy(old_prop)
-end
-```

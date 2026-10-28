@@ -21,20 +21,20 @@
 ## Методы загрузки ресурсов
 
 ### `Mod.load_sprite(relativePath, pixelsPerUnit)`
-Загружает растровое изображение (`.png`, `.jpg`) и создает экземпляр Unity `Sprite`.
+Загружает растровое изображение (`.png`, `.jpg`) и создает экземпляр `Sprite`.
 
 - **Параметры:**
   - `relativePath` (`string`): путь к файлу относительно папки `assets/` или корня мода.
-  - `pixelsPerUnit` (`number`, опционально): количество пикселей на одну игровую единицу (PPU). По умолчанию: `20.0` (стандартный масштаб физики Velvetics-Core).
+  - `pixelsPerUnit` (`number`, опционально): количество пикселей на одну игровую единицу (PPU). По умолчанию: `20.0` (стандартный масштаб физики VCore).
 - **Возвращает:** объект `Sprite` (`UserData`) или `nil` при ошибке.
 - **Псевдоним:** `Mod.LoadSprite(...)`.
 
 ```lua
 -- Загрузка спрайта с дефолтным PPU 20.0
-local sword_sprite = Mod.load_sprite("textures/katana.png")
+local crate_sprite = Mod.load_sprite("textures/steel_crate.png")
 
 -- Загрузка спрайта высокого разрешения с PPU 48.0
-local hi_res = Mod.load_sprite("textures/katana.png", 48.0)
+local hi_res = Mod.load_sprite("textures/steel_crate.png", 48.0)
 ```
 
 ---
@@ -55,13 +55,6 @@ local hi_res = Mod.load_sprite("textures/katana.png", 48.0)
 - **Возвращает:** содержимое файла (`string`) или `nil` при ошибке/отсутствии.
 - **Псевдоним:** `Mod.ReadText(...)`.
 
-```lua
-local raw_json = Mod.read_text("data/stats.json")
-if raw_json then
-    Log("Конфигурация успешно прочитана, размер: " .. string.len(raw_json) .. " байт")
-end
-```
-
 ---
 
 ### `Mod.asset_exists(relativePath)`
@@ -75,4 +68,4 @@ end
 
 ## Автоматическая очистка памяти
 
-Все созданные через `Mod.load_sprite` и `Mod.load_texture` объекты автоматически регистрируются в реестре мода. При вызове выгрузки мода (`Unload`) движок автоматически вызывает `UnityEngine.Object.Destroy` для каждой текстуры и спрайта, исключая утечки видеопамяти.
+Все созданные через `Mod.load_sprite` и `Mod.load_texture` объекты автоматически регистрируются в реестре мода. При вызове выгрузки мода (`Unload`) движок автоматически освобождает память для каждой текстуры и спрайта, исключая утечки видеопамяти.
