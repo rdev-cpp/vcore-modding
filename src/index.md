@@ -1,48 +1,32 @@
-# Введение в моддинг Velvetics-Core
+# VCore Modding Guide
 
-**Velvetics-Core** предоставляет высокопроизводительную модульную среду для создания пользовательских модификаций на языке **Lua**. Модификации позволяют расширять физическую песочницу: добавлять кастомные пропы, холодное и огнестрельное оружие, управлять камерой, манипулировать физикой мира и временем, а также интегрироваться в панель спавна (SpawnShelf / Q-меню).
+<div class="lang-selector-grid">
+  <a href="ru/index.html" class="lang-card">
+    <div class="lang-flag">🇷🇺</div>
+    <div class="lang-title">Русская версия</div>
+    <div class="lang-desc">Официальное руководство по созданию Lua-модификаций, справочник API, жизненный цикл и примеры.</div>
+    <span class="lang-btn">Перейти к руководству &rarr;</span>
+  </a>
 
----
-
-## Архитектура подсистемы
-
-Моддинг в Velvetics-Core построен на базе интерпретатора **MoonSharp (Lua 5.2)**, полностью работающего в управляемой среде Unity без нативных бинарных зависимостей (что обеспечивает совместимость как с Mono, так и с IL2CPP сборками).
-
-Ключевые технические особенности:
-- **Изоляция:** Каждый мод запускается в изолированном экземпляре виртуальной машины `Script(CoreModules.Preset_SoftSandbox)`.
-- **Горячая перезагрузка:** Моды можно включать, отключать и перезагружать прямо из главного меню (`mods`) без перезапуска игрового процесса.
-- **Двустилевой API:** Все встроенные методы API доступны как в стиле `PascalCase` (`Camera.SetSize`), так и в стиле `snake_case` (`camera.set_size`).
-- **Собственная шина событий:** Моды могут подписываться на системные события и генерировать собственные события для межмодового взаимодействия через `Events`.
-- **Безопасность:** Встроенный механизм защиты от обхода каталогов (Path Traversal Protection) блокирует доступ к файлам вне директории модификации.
-
----
-
-## Расположение модов
-
-Все установленные модификации располагаются в корневой папке `Mods/`, находящейся на одном уровне с исполняемым файлом игры или папкой `Assets/` в редакторе Unity:
-
-```text
-Velvetics-Core/
-├── Velvetics.exe
-└── Mods/
-    ├── CameraFovChanger/
-    │   ├── info.json
-    │   └── main.lua
-    └── CoolSwords/
-        ├── info.json
-        ├── main.lua
-        └── assets/
-            ├── katana.png
-            └── katana_icon.png
-```
-
-Игра автоматически сканирует директорию `Mods/` при запуске, валидирует манифесты `info.json` и выполняет точки входа `main.lua` для всех активных модов.
+  <a href="en/index.html" class="lang-card">
+    <div class="lang-flag">🇬🇧</div>
+    <div class="lang-title">English Version</div>
+    <div class="lang-desc">Official Lua modding guide, API reference, lifecycle hooks, and tutorials for VCore.</div>
+    <span class="lang-btn">Go to documentation &rarr;</span>
+  </a>
+</div>
 
 ---
 
-## Необходимые инструменты
+## Quick Navigation / Быстрая навигация
 
-Для разработки модификаций не требуется установка Unity Editor или Visual Studio:
-1. **Текстовый редактор:** Любой редактор кода с поддержкой Lua (VS Code с расширением *Lua by sumneko*, Sublime Text, Notepad++).
-2. **Графический редактор:** Любая программа для создания пиксель-арта или растровых изображений в формате `.png` (Aseprite, Photoshop, Paint.NET, GIMP).
-3. **Игра Velvetics-Core:** Любой тестовый билд или запуск из редактора.
+| Section / Раздел | Russian / Русский | English / Английский |
+| :--- | :--- | :--- |
+| **Getting Started** | [Быстрый старт](ru/quickstart.md) | [Quickstart](en/quickstart.md) |
+| **Mod Anatomy** | [Анатомия мода](ru/anatomy.md) | [Mod Anatomy](en/anatomy.md) |
+| **Lifecycle Hooks** | [Жизненный цикл](ru/lifecycle.md) | [Lifecycle Hooks](en/lifecycle.md) |
+| **API Reference** | [Справочник API](ru/api/overview.md) | [API Reference](en/api/overview.md) |
+| **Q-Menu Integration**| [SpawnShelf (Q-меню)](ru/shelf.md) | [SpawnShelf (Q-Menu)](en/shelf.md) |
+| **Sandbox & Security**| [Безопасность](ru/security.md) | [Sandbox & Security](en/security.md) |
+| **Tutorials** | [Практические примеры](ru/tutorials/overview.md) | [Tutorials](en/tutorials/overview.md) |
+| **In-game Workshop** | [Воркшоп](ru/workshop.md) | [Workshop & Publishing](en/workshop.md) |

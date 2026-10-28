@@ -1,8 +1,8 @@
 [book]
-title = "VCore • Руководство по моддингу"
+title = "VCore • Modding Guide"
 authors = ["Velvetic", "rdev"]
-description = "Официальное руководство по созданию Lua-модов и справочник API для физической песочницы VCore."
-language = "ru"
+description = "Official Lua modding documentation and API reference for the VCore 2D physics sandbox."
+language = "en"
 src = "src"
 
 [build]
@@ -11,6 +11,7 @@ create-missing = false
 
 [output.html]
 additional-css = ["custom.css"]
+additional-js = ["lang.js"]
 default-theme = "coal"
 preferred-dark-theme = "coal"
 mathjax-support = false

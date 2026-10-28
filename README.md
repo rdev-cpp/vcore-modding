@@ -1,40 +1,42 @@
-# VCore • Моддинг и Справочник API
+# vcore-modding
 
-Официальная документация по созданию модификаций для игры **VCore** (Velvetics-Core).
+Documentation and Lua API reference for VCore.
 
-📖 **Сайт документации:** [https://rdev-cpp.github.io/vcore-modding/](https://rdev-cpp.github.io/vcore-modding/)
-
----
-
-## Разделы документации
-
-- **Быстрый старт:** Создание первого мода со спавном ящика за 3 минуты.
-- **Анатомия мода:** Манифест `info.json`, правила структуры файлов и модульный `require()`.
-- **Жизненный цикл:** Хуки `OnInit`, `OnUpdate`, `OnFixedUpdate`, `OnSceneLoaded`, `OnGUI`, `OnUnload`.
-- **Справочник API:**
-  - `Mod`: загрузка спрайтов (PPU), текстур, данных.
-  - `World`: спавн пропов, оружия, ящиков, поиск и уничтожение.
-  - `Camera`: ортографический зум, границы камеры, мировые координаты.
-  - `Input`: опрос клавиатуры, мыши и колесика.
-  - `Physics`: 2D Raycast и управление гравитацией мира.
-  - `Events`: глобальная шина событий между модами.
-  - `Dials`: игровые настройки (язык, громкость, итерации физики, gore).
-  - `Time` & `Log`: слоу-мо, тайминги, логирование.
-- **SpawnShelf:** Добавление предметов в 6 тематических полок Q-меню.
-- **Безопасность:** Песочница `Preset_SoftSandbox`, защита от выхода за пределы папки (Path Traversal).
-- **Пошаговые руководства:**
-  - Управление камерой (`CameraFovChanger`)
-  - Пак холодного оружия (`CoolSwords`)
-- **Воркшоп:** Внутриигровой менеджер модов, горячая перезагрузка без перезапуска и публикация.
+Online guide: [https://rdev-cpp.github.io/vcore-modding/](https://rdev-cpp.github.io/vcore-modding/)
 
 ---
 
-## Локальная сборка
+## Overview
 
-Документация написана для генератора [mdBook](https://rust-lang.github.io/mdBook/).
+VCore supports user modifications written in Lua, running in an isolated MoonSharp sandbox.
 
-Для локального запуска и предпросмотра:
+This repository hosts the source markdown files for the documentation site, built with [mdBook](https://rust-lang.github.io/mdBook/).
+
+### Topics Covered
+- **Quickstart:** Simple mod creating crates on key press
+- **Mod Anatomy:** `info.json` specification, directory tree, modular `require`
+- **Lifecycle:** `OnInit`, `OnUpdate`, `OnFixedUpdate`, `OnSceneLoaded`, `OnGUI`, `OnUnload`
+- **API Reference:** `Mod`, `World`, `Camera`, `Input`, `Physics`, `Events`, `Dials`, `Time`, `Log`
+- **SpawnShelf:** Adding custom props and weapons to the Q-menu
+- **Sandbox:** Allowed libraries, restricted functions, path traversal protection
+- **Tutorials:** Camera zoom tool (`CameraFovChanger`) and melee pack (`CoolSwords`)
+
+---
+
+## Local Development
+
 ```bash
+# Build documentation
+mdbook build
+
+# Run local preview server
 mdbook serve --open
 ```
-Сайт автоматически откроется по адресу `http://localhost:3000`.
+
+Site opens at `http://localhost:3000`.
+
+---
+
+## License
+
+MIT
