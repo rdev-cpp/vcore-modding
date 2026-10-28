@@ -1,0 +1,86 @@
+:root {
+    --velvetic-red: #e62030;
+    --velvetic-red-hover: #ff3344;
+    --velvetic-red-dim: rgba(230, 32, 48, 0.15);
+}
+
+.coal {
+    --bg: #0d0f14;
+    --fg: #d6d9e0;
+    --sidebar-bg: #12151c;
+    --sidebar-fg: #9ba1b0;
+    --sidebar-non-existant: #505562;
+    --sidebar-spacer: #222733;
+    --sidebar-active: #ffffff;
+    --scrollbar: #2a3040;
+    --icons: #7b8294;
+    --icons-hover: #ffffff;
+    --links: #e62030;
+    --inline-code-color: #fca5a5;
+    --theme-popup-bg: #181c25;
+    --theme-popup-border: #2a3040;
+    --theme-hover: #222733;
+    --quote-bg: #141720;
+    --quote-border: #e62030;
+    --table-border-color: #222733;
+    --table-header-bg: #181c25;
+    --table-alternate-bg: #12151c;
+    --searchbar-border-color: #2a3040;
+    --searchbar-bg: #141720;
+    --searchbar-fg: #ffffff;
+    --searchbar-shadow-color: rgba(0, 0, 0, 0.4);
+    --searchresults-header-fg: #9ba1b0;
+    --searchresults-border-color: #2a3040;
+    --searchresults-li-bg: #181c25;
+}
+
+.sidebar .active > a {
+    color: #ffffff !important;
+    font-weight: 600;
+    border-left: 3px solid var(--velvetic-red);
+    padding-left: 5px;
+}
+
+.sidebar a:hover {
+    color: #ffffff !important;
+}
+
+a {
+    color: var(--velvetic-red);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--velvetic-red-hover);
+    text-decoration: underline;
+}
+
+code {
+    font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
+    font-size: 0.9em;
+}
+
+pre {
+    border-radius: 6px;
+    border: 1px solid #222733;
+}
+
+blockquote {
+    border-left: 3px solid var(--velvetic-red);
+    background: var(--velvetic-red-dim);
+    padding: 10px 16px;
+    border-radius: 0 6px 6px 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background: var(--velvetic-red);
+    color: #ffffff;
+    vertical-align: middle;
+    margin-left: 6px;
+}

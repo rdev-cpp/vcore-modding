@@ -1,0 +1,35 @@
+[book]
+title = "VCore • Руководство по моддингу"
+authors = ["Velvetic", "rdev"]
+description = "Официальное руководство по созданию Lua-модов и справочник API для физической песочницы VCore."
+language = "ru"
+src = "src"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+additional-css = ["custom.css"]
+default-theme = "coal"
+preferred-dark-theme = "coal"
+mathjax-support = false
+admonitions = true
+smart-punctuation = true
+git-repository-url = "https://github.com/rdev-cpp/vcore-modding"
+site-url = "/vcore-modding/"
+
+[output.html.search]
+enable = true
+limit-results = 30
+teaser-word-count = 30
+use-boolean-and = true
+boost-title = 2
+boost-hierarchy = 1
+boost-paragraph = 1
+expand = true
+heading-split-level = 3
+
+[output.html.fold]
+enable = true
+level = 1
